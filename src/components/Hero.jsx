@@ -5,7 +5,7 @@ export default function Hero() {
   const btnSecondary = "border border-slate-600 hover:border-indigo-400 text-slate-300 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-slate-950 pt-16">
+    <section className="min-h-screen flex items-center justify-center bg-slate-900 pt-16">
       <div className="text-center px-6">
         <p className="text-indigo-400 text-sm font-medium mb-4 tracking-widest uppercase">
           Hello, I am

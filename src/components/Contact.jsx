@@ -5,7 +5,7 @@ export default function Contact() {
   const btnSecondary = "border border-slate-600 hover:border-indigo-400 text-slate-300 hover:text-indigo-300 px-8 py-3 rounded-lg font-medium transition-colors duration-200"
 
   return (
-    <section id="contact" className="bg-slate-950 py-20 px-6">
+    <section id="contact" className="bg-slate-900 py-20 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-white mb-2">Get In Touch</h2>
         <div className="w-16 h-1 bg-indigo-500 mx-auto mb-6"></div>
