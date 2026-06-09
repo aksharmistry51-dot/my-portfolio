@@ -2,7 +2,7 @@ import { personalInfo } from "../data/data"
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 py-8 px-6">
+    <footer className="bg-slate-800 border-t border-slate-700 py-8 px-6">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-slate-400 text-sm">
           Built by <span className="text-indigo-400 font-medium">{personalInfo.name}</span>
