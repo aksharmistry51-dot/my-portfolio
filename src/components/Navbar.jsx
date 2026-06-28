@@ -1,21 +1,72 @@
+import { useState, useEffect } from "react"
 import { personalInfo } from "../data/data"
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [hovered, setHovered] = useState(null)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const links = ["About", "Skills", "Projects", "Contact"]
+
   return (
-    <nav className="fixed top-0 w-full bg-slate-900/90 backdrop-blur-sm border-b border-slate-800 z-50">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <span className="text-white font-bold text-xl">
+    <nav style={{
+      position: "fixed",
+      top: 0,
+      width: "100%",
+      zIndex: 50,
+      transition: "all 0.3s ease",
+      backgroundColor: scrolled ? "rgba(15,23,42,0.85)" : "transparent",
+      backdropFilter: scrolled ? "blur(12px)" : "none",
+      borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
+    }}>
+      <div style={{
+        maxWidth: "1100px",
+        margin: "0 auto",
+        padding: "16px 24px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}>
+
+        <span style={{
+          fontFamily: "Sora, sans-serif",
+          fontWeight: 700,
+          fontSize: "1.25rem",
+          color: "#F8FAFC",
+        }}>
           {personalInfo.name.split(" ")[0]}
-          <span className="text-indigo-400">.</span>
+          <span style={{ color: "#38BDF8" }}>.</span>
         </span>
-        <div className="flex gap-8">
-          {["About", "Skills", "Projects", "Contact"].map((item) => (
-            <a key={item} href={"#" + item.toLowerCase()}
-              className="text-slate-400 hover:text-indigo-400 text-sm transition-colors duration-200">
+
+        <div style={{ display: "flex", gap: "2rem" }}>
+          {links.map((item) => (
+            <button
+              key={item}
+              onClick={() => document.getElementById(item.toLowerCase()).scrollIntoView({ behavior: "smooth" })}
+              onMouseEnter={() => setHovered(item)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                color: hovered === item ? "#38BDF8" : "#CBD5E1",
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                fontFamily: "Inter, sans-serif",
+                transition: "color 0.2s ease",
+                padding: 0,
+              }}
+            >
               {item}
-            </a>
+            </button>
           ))}
         </div>
+
       </div>
     </nav>
   )

@@ -5,5 +5,15 @@ html {
 }
 
 body {
-  background-color: #0f172a;
+  background-color: #0F172A;
+  font-family: 'Inter', sans-serif;
+  color: #F8FAFC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
 }
